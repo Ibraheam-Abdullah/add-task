@@ -1,12 +1,171 @@
-.task {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
+* {
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+    outline: 0 !important;
+    box-shadow: 0 !important;
+}
+
+body {
+    background: rgb(68, 100, 173);
+    background: linear-gradient(
+        100deg,
+        rgb(68, 157, 173),
+        rgb(15, 25, 101)
+    );
+    color: white;
+    min-height: 100vh;
+    margin-bottom: 2rem;
+}
+
+header {
+    font-size: 1.2rem;
+}
+
+header,
+form {
+    min-height: 25vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.task.completed {
+form input,
+form button {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    font-size: 1.8rem;
+    border: none;
+    background: #ffffffe4;
+}
+
+form button {
+    padding: 0.5rem 1rem;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: rgb(178, 171, 171);
+    color: rgb(0, 0, 0);
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    min-width: 30%;
+    list-style: none;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+    background: white;
+    font-size: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+form input,
+.todo {
+    color: rgb(88, 87, 87);
+}
+
+.todo li {
+    flex: 1;
+}
+
+.trash-btn,
+.check-btn {
+    background-color: rgb(117, 12, 12);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.2s all ease;
+}
+
+.check-btn {
+    background-color: rgb(41, 161, 55);
+}
+
+.check-btn:hover {
+    background-color: rgb(17, 49, 11);
+}
+
+.trash-btn:hover {
+    color: rgb(12, 12, 12);
+}
+
+.todo-item {
+    padding: 0rem 1.2rem;
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    opacity: 0.6;
     text-decoration: line-through;
-    opacity: 0.5;
+}
+
+.fall {
+    animation: fall-apart 0.5s ease-out;
+}
+
+@keyframes fall-apart {
+    100% {
+        transform: rotateZ(20deg) translateY(8rem);
+        opacity: 0;
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    font-size: 1.2em;
+    color: rgb(21, 110, 102);
+    width: 15rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    background: rgb(0, 0, 0);
+    top: 0;
+    right: 0;
+    padding: 1.2rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.select:hover::after {
+    background-color: rgb(182, 178, 178);
+    color: rgb(21, 92, 110);
 }
